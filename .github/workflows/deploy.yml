@@ -21,26 +21,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+ build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate catalog 
+        run: echo aaa
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+           name: testartifact
+ deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Generate catalog
-        run: echo aaa
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1.0.7
-        with:
-           path: test
-           name: wallpapers
       - name: Deploy page
         uses: actions/deploy-pages@v1.2.3
         with:
            token: ${{ secrets.PAT }}
-           artifact_name: wallpapers
+           artifact_name: testartifact
            
       
