@@ -38,6 +38,7 @@ jobs:
            path: test
            name: wallpapers
       - name: Deploy page
+        uses: actions/deploy-pages@v1.2.3
         with:
            token: ${{ secret.PAT }}
            artifact_name: wallpapers
