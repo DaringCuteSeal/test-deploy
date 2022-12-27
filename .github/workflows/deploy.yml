@@ -32,8 +32,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Generate catalog
         run: echo aaa
-      - name: Deploy page
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.7
         with:
            path: test
+           name: wallpapers
+      - name: Deploy page
+        with:
+           token: ${{ secret.PAT }}
+           artifact_name: wallpapers
+           
       
