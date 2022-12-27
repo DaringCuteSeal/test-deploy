@@ -1,0 +1,45 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["gh-pages"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Pages Custom Deploy
+        # You may pin to the exact commit or the version.
+        # uses: sterlingwes/gh-pages-deploy-action@8b237b6c575f341cd5c28660337a21869e222f62
+        uses: sterlingwes/gh-pages-deploy-action@v1.1
+        with:
+          # A personal access token needed to push your site after it has been built.
+          access-token: ${{ secrets.PAT }}
+          # The subdirectory that your build command outputs your site assets to.
+          source-directory: test
+          # The build command that should be run to generate your site.
+          build-command: ls 
+          # The branch expected by GitHub to have the static files needed for your site.
+          deploy-branch: gh-pages
+          # The custom domain you want your Github Pages site to be served from.
+          custom-domain: https://wallpapers.daringcuteseal.xyz
