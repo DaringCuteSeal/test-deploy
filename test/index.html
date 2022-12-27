@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Unit Converter</title>     
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <h1 class="header">Unit Converter</h1>
+
+        <p><strong>Input value:</strong></p>
+	<p>
+		<input id="input" type="number" value=20>
+	</p>
+
+	<p><strong>Decimal precission:</strong></p>
+
+		<input id="precission" type="number" min=0 max=10 value=3>
+	<p>
+		<button id="submit" onclick="submit()">Convert</button>
+	</p>
+
+	<div class="content">
+		<p id="input-val"></p>
+
+		<h1>Length</h1>
+		<div>
+			<span class=bold id="length-ft-m"></span>
+			<span> meters is equal to </span>
+			<span class=bold id="ft-m"></span>
+			<span> feet</span>
+		</div>
+		
+		<div>
+			<span class=bold id="length-m-ft"></span>
+			<span>feet is equal to</span>
+			<span class=bold id="m-ft"></span>
+			<span>meters</span>
+		</div>
+
+		<h1>Temperature</h1>
+		<div>
+			<span class=bold id="temp-c-f"></span>
+			<span>is equal to</span>
+			<span class=bold id="c-f"></span>
+		</div>
+		<div>
+			<span class=bold id="temp-f-c"></span>
+			<span>is equal to</span>
+			<span class=bold id="f-c"></span>
+		</div>
+
+		<h1>Mass</h1>
+		<div>
+		<div>
+			<span class=bold id="mass-kg-lb"></span>
+			<span>kilograms is equal to</span>
+			<span class=bold id="kg-lb"></span>
+			<span>pounds</span>
+		</div>
+		<div>
+			<span class=bold id="mass-lb-kg"></span>
+			<span>pounds is equal to</span>
+			<span class=bold id="lb-kg"></span>
+			<span>kilograms</span>
+		</div>
+
+        </div>
+
+	<script src="index.js"></script>
+    </body>
+</html>
