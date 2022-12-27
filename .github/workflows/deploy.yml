@@ -28,6 +28,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout
       - name: Github Pages Custom Deploy
         # You may pin to the exact commit or the version.
         # uses: sterlingwes/gh-pages-deploy-action@8b237b6c575f341cd5c28660337a21869e222f62
